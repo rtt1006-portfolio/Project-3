@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>포트폴리오</title>
+    <style>
+        *{box-sizing:border-box;margin:0;padding:0;}
+        a{text-decoration:none;color:#fff;}
+        ul,ol,li{list-style:none;}
+        img{width:100%;}
+
+        html,body{width:100vw;height:100vh;background-color:#000;font-weight:700;font-size:14px;color:#fff;}
+        ::selection{background-color:#fff;color:#000;}
+        .logo,nav,.git,address,.intro{
+            mix-blend-mode:difference;
+        }
+        .bg-box{
+            position:fixed;
+            left:0;
+            right:0;
+            top:0;
+            bottom:0;
+            z-index:0;
+            background-image:url(./images/my-face.png);
+            background-position:center;
+            background-repeat:no-repeat;
+            background-size:80%;
+            font-size:0;            
+        }
+        main{position:relative;z-index:1;}
+        .logo{
+            position:fixed;
+            left:-410px;
+            top:50px;
+            text-transform:uppercase;
+            font-size:46px;
+            line-height:52px;
+            transition-duration:0.3s;
+            transition-delay: 1s;
+        }
+        .logo.active{
+            left:40px;
+        }
+        .logo span:last-of-type{
+            font-size:64px;
+            color:#aaa;
+        }
+        nav{
+            position:fixed;
+            left:40px;
+            bottom:-30px;
+            font-weight:400;
+            font-size:20px;
+            transform:rotate(0deg);
+            transform-origin:left bottom;
+            transition-duration:0.3s;
+            transition-delay: 1.3s;
+        }
+        nav.active{transform:rotate(90deg);bottom:550px;}
+        nav li{
+            display:inline-block;
+            margin-right:1em;            
+            text-transform:uppercase;
+        }
+        nav li:hover{
+            text-decoration:line-through;
+        }
+
+        .intro{       
+            margin-top:100vh;     
+            padding:0 40px;
+            font-size:15vw;
+            text-transform:capitalize;
+            line-height:16vw;           
+        }
+        .intro span{display:inline-block;transform:rotateX(90deg);transition:1s;}
+        .intro.active2 span{transform:rotateX(0deg);}
+        .intro span:nth-child(3n){
+            color:#aaa;
+        }
+
+        .portfolio{
+            padding:20vw 40px;
+            display:grid;
+            grid-template-columns:auto auto;
+            gap:300px 80px;            
+        }
+        .portfolio article:nth-child(1){
+            grid-row:1 / 2;
+            grid-column:1 / 2;
+        }
+        .portfolio article:nth-child(2){
+            grid-row:2 / 3;
+            grid-column:2 / 3;
+        }
+        .portfolio article:nth-child(3){
+            grid-row:3 / 4;
+            grid-column:1 / 2;
+        }
+        .portfolio article:nth-child(4){
+            grid-row:4 / 5;
+            grid-column:2 / 3;
+        }
+        .portfolio article:nth-child(5){
+            grid-row:5 / 6;
+            grid-column:1 / 2;
+        }
+
+        article .content{width:500px;float:right;}
+        article:nth-child(2n) .content{float:left;}
+        article .content .img-box{width:100%;height:320px;overflow:hidden;filter:grayscale(1);transition:0.5s;}
+        article .content .img-box:hover{filter:grayscale(0);}
+        article .content h2{font-size:60px;}
+
+
+        .git{
+            position:fixed;
+            right:40px;
+            top:50px;
+            font-size:30px;
+            transform:rotate(45deg);
+            opacity:0;
+        }
+        .git.active{            
+            animation: git-ani 1s 1.6s;
+            animation-fill-mode: forwards;
+        }
+        @keyframes git-ani{
+            0%{opacity:0;transform:scale(1) rotate(45deg);}
+            25%{opacity:1;transform:scale(1.2) rotate(45deg);}
+            50%{opacity:0.5;transform:scale(0.8) rotate(45deg);}
+            75%{opacity:0.8;transform:scale(1.2) rotate(45deg);}
+            100%{opacity:1;transform:scale(1) rotate(45deg);}
+        }
+        address{
+            position:fixed;
+            right:40px;
+            bottom:50px;
+        }
+    </style>
+</head>
+<body>
+    <section class="wrap">
+        <div class="bg-box">
+            백그라운드 이미지
+        </div>
+        <main>
+            <header class="header">
+                <h1 class="logo"><span>hong gildong</span><br><span>portfolio</span></h1>
+                <nav>
+                    <ul>
+                        <li><a href="https://github.com/pam7464/megabox/">megabox</a></li>
+                        <li><a href="https://github.com/pam7464/hollys/">hollys</a></li>
+                        <li><a href="https://github.com/pam7464/hansol/">hansol</a></li>
+                        <li><a href="https://github.com/pam7464/indigo/">indigo</a></li>
+                        <li><a href="https://github.com/pam7464/tourist/">tourist</a></li>
+                    </ul>    
+                </nav>            
+            </header>
+            <section class="section intro">
+                <span>Lorem, ipsum dolor s</span>
+                <span>consectetur adipisicing elit.</span>
+                <span>Quibusdam, delectus!</span>
+                <span>Quibusdam,</span>
+                <span>delectus! Sapiente commodi, alias facere</span>
+                <span>nemo facilis quia exercitationem dolores</span>
+                <span>obcaecati hic</span>
+                <span>eos. Et illo obcaecati</span>               
+            </section>
+            <section class="section portfolio">
+                <article class="art01">
+                    <div class="content">
+                        <div class="img-box">
+                            <a href="https://github.com/pam7464/megabox/">
+                                <img src="./images/megabox.jpg" alt="megabox">
+                            </a>
+                        </div>
+                        <h2>megabox</h2>
+                    </div>
+                </article>
+                <article class="art02">
+                    <div class="content">
+                        <div class="img-box">
+                            <a href="https://github.com/pam7464/hollys/">
+                                <img src="./images/hollys.jpg" alt="hollys">
+                            </a>
+                        </div>
+                        <h2>hollys</h2>
+                    </div>
+                </article>
+                <article class="art03">
+                    <div class="content">
+                        <div class="img-box">
+                            <a href="https://github.com/pam7464/indigo/">
+                                <img src="./images/indigo.jpg" alt="indigo">
+                            </a>
+                        </div>
+                        <h2>indigo</h2>
+                    </div>
+                </article>
+                <article class="art04">
+                    <div class="content">
+                        <div class="img-box">
+                            <a href="https://github.com/pam7464/hansol/">
+                                <img src="./images/hansol.jpg" alt="hansol">
+                            </a>
+                        </div>
+                        <h2>hansol</h2>
+                    </div>
+                </article>
+                <article class="art05">
+                    <div class="content">
+                        <div class="img-box">
+                            <a href="https://github.com/pam7464/tourist/">
+                                <img src="./images/tourist.jpg" alt="tourist">
+                            </a>
+                        </div>
+                        <h2>tourist</h2>
+                    </div>
+                </article>
+            </section>
+            <footer class="footer">
+                <div class="git"><a href="https://github.com/pam7464/project-portfolio03/">github</a></div>
+                <address>
+                    copyright hong.
+                </address>
+            </footer>
+        </main>
+    </section>
+
+    <script>
+        $(function(){
+            // 배경 이미지 변형
+            $(window).mousemove(function(e){
+                let pageX = e.pageX;
+                let pageY = e.pageY;
+                // console.log('마우스 x좌표 = ' + pageX);
+                // console.log('마우스 y좌표 = ' + pageY);
+                $('.bg-box').css({
+                    'transform':'perspective(500px) rotateX(' + pageY/100 + 'deg) rotateY(' + pageX/100 +'deg)',
+                })
+            })
+
+            setTimeout(function(){
+                $('.logo,nav,.git,.intro').addClass('active');
+            },1000);
+
+
+            $(window).scroll(function(){
+                let scrTop = $(document).scrollTop();
+                // console.log(scrTop);
+                let osIntro = $('.intro').offset().top;
+                // console.log(osIntro);
+                if(scrTop >= osIntro-400){
+                    $('.intro').addClass('active2'); 
+                }else{
+                    $('.intro').removeClass('active2'); 
+                }
+
+                let art01Top = $('.art01').offset().top;
+                if(scrTop >= art01Top-400){
+                    $('.art01 img').css({
+                        'transition':'1s',
+                        'transform':'scale(1.4)',
+                    });
+                }else{
+                    $('.art01 img').css({
+                        'transform':'scale(1)', 
+                    })
+                }
+                let art02Top = $('.art02').offset().top;
+                if(scrTop >= art02Top-400){
+                    $('.art02 img').css({
+                        'transition':'1s',
+                        'transform':'scale(1.4)',
+                    });
+                }else{
+                    $('.art02 img').css({
+                        'transform':'scale(1)', 
+                    })
+                }
+                let art03Top = $('.art03').offset().top;
+                if(scrTop >= art03Top-400){
+                    $('.art03 img').css({
+                        'transition':'1s',
+                        'transform':'scale(1.4)',
+                    });
+                }else{
+                    $('.art03 img').css({
+                        'transform':'scale(1)', 
+                    })
+                }
+                let art04Top = $('.art04').offset().top;
+                if(scrTop >= art04Top-400){
+                    $('.art04 img').css({
+                        'transition':'1s',
+                        'transform':'scale(1.4)',
+                    });
+                }else{
+                    $('.art04 img').css({
+                        'transform':'scale(1)', 
+                    })
+                }
+                let art05Top = $('.art05').offset().top;
+                if(scrTop >= art05Top-400){
+                    $('.art05 img').css({
+                        'transition':'1s',
+                        'transform':'scale(1.4)',
+                    });
+                }else{
+                    $('.art05 img').css({
+                        'transform':'scale(1)', 
+                    })
+                }
+            })
+
+
+
+        })
+    </script>
+</body>
+</html>
